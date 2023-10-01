@@ -90,7 +90,7 @@ export default function Home() {
               artist line up and music with multi-genre music festival.
             </div>
             <div className={styles.boxImage}>
-              <img src="/images/section-2-1.png" alt="Section 2 1" />
+              <img src="/images/section-2-2.png" alt="Section 2 1" />
             </div>
           </div>
         </div>

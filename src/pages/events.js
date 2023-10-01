@@ -48,7 +48,323 @@ export default function Events() {
               <span className={styles.headerText}>bendereign!</span>
             </h1>
           </div>
-          <div className={styles.gr1}></div>
+          <div className={styles.evenWrapper}>
+            <div className={styles.eventCategory}>Bendereign Nights</div>
+            <div className={styles.eventContainer}>
+              <div className={styles.eventBox}>
+                <div className={styles.eventImg}>
+                  <img alt="Event" src="/images/event-1.png" />
+                </div>
+                <div className={styles.eventHeader}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventTitle}>Event Name</div>
+                    <div className={styles.eventSubTitle}>
+                      Most fonts have a particular weight which corresponds
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>4 Days Left</div>
+                </div>
+                <div className={styles.eventDetailsWrapper}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/location.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Location</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/time.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Time</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/date.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Date</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/artist.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Artist names</div>
+                    </div>
+                    <div className={styles.eventMusic}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/music.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>
+                        House, Tecno, Pop
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>
+                    <div className={styles.entry}>Minimum Entry</div>
+                    <div className={styles.price}>500 AED</div>
+                  </div>
+                </div>
+                <div className={styles.eventActionContainer}>
+                  <button>Book Tickets Now</button>
+                  <button>Know More</button>
+                </div>
+              </div>
+              <div className={styles.eventBox}>
+                <div className={styles.eventImg}>
+                  <img alt="Event" src="/images/event-2.png" />
+                </div>
+                <div className={styles.eventHeader}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventTitle}>Event Name</div>
+                    <div className={styles.eventSubTitle}>
+                      Most fonts have a particular weight which corresponds
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>4 Days Left</div>
+                </div>
+                <div className={styles.eventDetailsWrapper}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/location.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Location</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/time.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Time</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/date.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Date</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/artist.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Artist names</div>
+                    </div>
+                    <div className={styles.eventMusic}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/music.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>
+                        House, Tecno, Pop
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>
+                    <div className={styles.entry}>Minimum Entry</div>
+                    <div className={styles.price}>500 AED</div>
+                  </div>
+                </div>
+                <div className={styles.eventActionContainer}>
+                  <button>Book Tickets Now</button>
+                  <button>Know More</button>
+                </div>
+              </div>
+              <div className={styles.eventBox}>
+                <div className={styles.eventImg}>
+                  <img alt="Event" src="/images/event-1.png" />
+                </div>
+                <div className={styles.eventHeader}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventTitle}>Event Name</div>
+                    <div className={styles.eventSubTitle}>
+                      Most fonts have a particular weight which corresponds
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>4 Days Left</div>
+                </div>
+                <div className={styles.eventDetailsWrapper}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/location.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Location</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/time.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Time</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/date.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Date</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/artist.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Artist names</div>
+                    </div>
+                    <div className={styles.eventMusic}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/music.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>
+                        House, Tecno, Pop
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>
+                    <div className={styles.entry}>Minimum Entry</div>
+                    <div className={styles.price}>500 AED</div>
+                  </div>
+                </div>
+                <div className={styles.eventActionContainer}>
+                  <button>Book Tickets Now</button>
+                  <button>Know More</button>
+                </div>
+              </div>
+              <div className={styles.eventBox}>
+                <div className={styles.eventImg}>
+                  <img alt="Event" src="/images/event-2.png" />
+                </div>
+                <div className={styles.eventHeader}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventTitle}>Event Name</div>
+                    <div className={styles.eventSubTitle}>
+                      Most fonts have a particular weight which corresponds
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>4 Days Left</div>
+                </div>
+                <div className={styles.eventDetailsWrapper}>
+                  <div className={styles.leftBox}>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/location.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Location</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/time.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Time</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/date.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Date</div>
+                    </div>
+                    <div className={styles.eventDetailsBox}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/artist.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>Artist names</div>
+                    </div>
+                    <div className={styles.eventMusic}>
+                      <div className={styles.detailsIcon}>
+                        <Image
+                          width={100}
+                          height={100}
+                          src="/images/music.png"
+                        ></Image>
+                      </div>
+                      <div className={styles.detailsValue}>
+                        House, Tecno, Pop
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.rightBox}>
+                    <div className={styles.entry}>Minimum Entry</div>
+                    <div className={styles.price}>500 AED</div>
+                  </div>
+                </div>
+                <div className={styles.eventActionContainer}>
+                  <button>Book Tickets Now</button>
+                  <button>Know More</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </>

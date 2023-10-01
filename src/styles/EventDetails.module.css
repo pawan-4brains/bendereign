@@ -41,14 +41,7 @@
   box-sizing: border-box;
 }
 
-.section1 .evenWrapper .eventContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 1vw;
-}
-
 .section1 .evenWrapper .eventContainer .eventBox {
-  width: 50%;
   box-sizing: border-box;
   margin-bottom: 5vw;
 }
@@ -87,7 +80,7 @@
   .eventHeader
   .leftBox
   .eventTitle {
-  font-size: 2vw;
+  font-size: 2.5vw;
   font-weight: 700;
   color: #ffffff;
 }
@@ -143,56 +136,6 @@
   .leftBox
   .eventDetailsBox
   .detailsIcon {
-  width: 15%;
-}
-
-.section1
-  .evenWrapper
-  .eventContainer
-  .eventBox
-  .eventDetailsWrapper
-  .leftBox
-  .eventDetailsBox
-  .detailsIcon
-  img {
-  width: 1.5vw;
-  height: 1.5vw;
-}
-
-.section1
-  .evenWrapper
-  .eventContainer
-  .eventBox
-  .eventDetailsWrapper
-  .leftBox
-  .eventDetailsBox
-  .detailsValue {
-  width: 85%;
-  font-size: 1.2vw;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.section1
-  .evenWrapper
-  .eventContainer
-  .eventBox
-  .eventDetailsWrapper
-  .leftBox
-  .eventMusic {
-  width: 100%;
-  display: flex;
-  margin-bottom: 1vw;
-}
-
-.section1
-  .evenWrapper
-  .eventContainer
-  .eventBox
-  .eventDetailsWrapper
-  .leftBox
-  .eventMusic
-  .detailsIcon {
   width: 7.5%;
 }
 
@@ -202,7 +145,7 @@
   .eventBox
   .eventDetailsWrapper
   .leftBox
-  .eventMusic
+  .eventDetailsBox
   .detailsIcon
   img {
   width: 1.5vw;
@@ -215,7 +158,7 @@
   .eventBox
   .eventDetailsWrapper
   .leftBox
-  .eventMusic
+  .eventDetailsBox
   .detailsValue {
   width: 92.5%;
   font-size: 1.2vw;
@@ -273,4 +216,26 @@
   font-size: 1vw;
   font-weight: 600;
   cursor: pointer;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .briefLabel {
+  color: #fff;
+  font-size: 2vw;
+  font-weight: 700;
+  margin-top: 1vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .briefDescription {
+  color: #fff;
+  font-size: 1vw;
+  font-weight: 300;
+  width: 70%;
+  margin-top: 0.5vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .artistLabel {
+  color: #fff;
+  font-size: 2vw;
+  font-weight: 700;
+  margin-top: 1vw;
 }
