@@ -31,13 +31,17 @@
 }
 
 .navBarContainer .menuContainer ul li {
-  color: #fff;
-  font-size: 1vw;
-  font-weight: 600;
   padding: 0.75vw 2vw;
   box-sizing: border-box;
   margin: 0 0.5vw;
   cursor: pointer;
+}
+
+.navBarContainer .menuContainer ul li a {
+  color: #fff;
+  font-size: 1vw;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .navBarContainer .menuContainer ul li.active {

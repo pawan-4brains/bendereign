@@ -3,11 +3,20 @@ import Image from "next/image";
 import { Raleway } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import NavBar from "@/components/NavBar";
+import AgeGate from "@/components/AgeGate";
+import { useEffect, useState } from "react";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Home() {
   const numberOfGalaxies = 84;
+  const [showAgeGate, setShowAgeGate] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem("ageGateVerification")) {
+      setShowAgeGate(true);
+    }
+  }, []);
 
   return (
     <>
@@ -38,8 +47,14 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <main className={`${raleway.className}`}>
-        <NavBar bgColor={styles.navBarBG1} />
-
+        <NavBar activeMenu={"HOME"} bgColor={styles.navBarBG1} />
+        {showAgeGate && (
+          <AgeGate
+            onCompleted={() => {
+              setShowAgeGate(false);
+            }}
+          />
+        )}
         <div className={styles.section1}>
           <div className={styles.galaxyContainer}>
             {Array.from({ length: numberOfGalaxies }).map((_, index) => (

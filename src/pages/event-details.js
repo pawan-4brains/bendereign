@@ -38,7 +38,7 @@ export default function EventDetails() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <main className={`${raleway.className}`}>
-        <NavBar />
+        <NavBar activeMenu={"EVENTS"} />
 
         <div className={styles.section1}>
           <div className={styles.headerContainer}>
@@ -121,7 +121,127 @@ export default function EventDetails() {
                   with a more
                 </div>
                 <div className={styles.artistLabel}>Artists</div>
-                <div></div>
+                <div className={styles.artistContainer}>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                  <div className={styles.artistBox}>
+                    <div>
+                      <Image
+                        src="/images/user.jpg"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
+                    <div className={styles.artistName}>Artist Name</div>
+                    <div className={styles.artistDetails}>
+                      Most fonts have a particular weight which corresponds to
+                      one of the numbers in Common
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.foodLabel}>Food & Beverages</div>
+                <div className={styles.foodTagContainer}>
+                  <div className={styles.foodTag}>Multi-Cuisine</div>
+                  <div className={styles.foodTag}>Alcohol</div>
+                  <div className={styles.foodTag}>Cocktails</div>
+                  <div className={styles.foodTag}>Sheesha</div>
+                  <div className={styles.foodTag}>Mocktails</div>
+                  <div className={styles.foodTag}>Multi-Cuisine</div>
+                  <div className={styles.foodTag}>Alcohol</div>
+                  <div className={styles.foodTag}>Cocktails</div>
+                  <div className={styles.foodTag}>Sheesha</div>
+                  <div className={styles.foodTag}>Mocktails</div>
+                  <div className={styles.foodTag}>Multi-Cuisine</div>
+                  <div className={styles.foodTag}>Alcohol</div>
+                  <div className={styles.foodTag}>Cocktails</div>
+                  <div className={styles.foodTag}>Sheesha</div>
+                  <div className={styles.foodTag}>Mocktails</div>
+                </div>
+                <div className={styles.eventActionContainer}>
+                  <button>Book Tickets Now</button>
+                </div>
               </div>
             </div>
           </div>

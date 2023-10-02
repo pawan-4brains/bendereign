@@ -1,7 +1,9 @@
 import styles from "@/styles/NavBar.module.css";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
-function NavBar({ bgColor }) {
+function NavBar({ activeMenu, bgColor }) {
   return (
     <>
       <div className={`${styles.navBarContainer} ${bgColor}`}>
@@ -12,14 +14,37 @@ function NavBar({ bgColor }) {
         </div>
         <div className={styles.menuContainer}>
           <ul>
-            <li>PROFILE</li>
-            <li className={styles.active}>HOME</li>
-            <li>EVENTS</li>
-            <li>MEDIA</li>
-            <li>MEMORY BOX</li>
-            <li className={styles.authBtn}>SING UP</li>
-            <li className={styles.authBtn}>LOGIN</li>
-            <li className={styles.authBtn}>LOGOUT</li>
+            <li className={activeMenu === "PROFILE" ? styles.active : ""}>
+              <Link href="/profile">PROFILE</Link>
+            </li>
+
+            <li className={activeMenu === "HOME" ? styles.active : ""}>
+              <Link href="/">HOME</Link>
+            </li>
+
+            <li className={activeMenu === "EVENTS" ? styles.active : ""}>
+              <Link href="/events">EVENTS</Link>
+            </li>
+
+            <li className={activeMenu === "MEDIA" ? styles.active : ""}>
+              <Link href="/media">MEDIA</Link>
+            </li>
+
+            <li className={activeMenu === "MEMORY BOX" ? styles.active : ""}>
+              <Link href="/memory-box">MEMORY BOX</Link>
+            </li>
+
+            <li className={styles.authBtn}>
+              <Link href="/signup">SIGN UP</Link>
+            </li>
+
+            <li className={styles.authBtn}>
+              <Link href="/login">LOGIN</Link>
+            </li>
+
+            <li className={styles.authBtn}>
+              <Link href="/logout">LOGOUT</Link>
+            </li>
           </ul>
         </div>
       </div>

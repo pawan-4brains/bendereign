@@ -274,3 +274,14 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.section1
+  .evenWrapper
+  .eventContainer
+  .eventBox
+  .eventActionContainer
+  button
+  a {
+  color: #fff;
+  text-decoration: none;
+}

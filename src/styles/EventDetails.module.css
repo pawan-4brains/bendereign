@@ -9,7 +9,7 @@
   background-attachment: fixed;
 
   position: relative;
-  padding: 15vw 3vw 0 3vw;
+  padding: 15vw 3vw 3vw 3vw;
 }
 
 .section1 .headerContainer {
@@ -43,7 +43,6 @@
 
 .section1 .evenWrapper .eventContainer .eventBox {
   box-sizing: border-box;
-  margin-bottom: 5vw;
 }
 
 .section1 .evenWrapper .eventContainer .eventBox:nth-child(odd) {
@@ -201,23 +200,6 @@
   text-align: right;
 }
 
-.section1 .evenWrapper .eventContainer .eventBox .eventActionContainer {
-  display: flex;
-}
-
-.section1 .evenWrapper .eventContainer .eventBox .eventActionContainer button {
-  background-color: #2144ff;
-  color: #fff;
-  border: none;
-  padding: 0.75vw 1.5vw;
-  box-sizing: border-box;
-  margin-right: 1vw;
-  border-radius: 0.5vw;
-  font-size: 1vw;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 .section1 .evenWrapper .eventContainer .eventBox .briefLabel {
   color: #fff;
   font-size: 2vw;
@@ -238,4 +220,101 @@
   font-size: 2vw;
   font-weight: 700;
   margin-top: 1vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .artistContainer {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .artistContainer .artistBox {
+  width: 25%;
+  padding-right: 2%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 3vw;
+}
+
+.section1
+  .evenWrapper
+  .eventContainer
+  .eventBox
+  .artistContainer
+  .artistBox
+  img {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.section1
+  .evenWrapper
+  .eventContainer
+  .eventBox
+  .artistContainer
+  .artistBox
+  .artistName {
+  color: #fff;
+  font-size: 1.3vw;
+  font-weight: 700;
+  margin-top: 1vw;
+}
+
+.section1
+  .evenWrapper
+  .eventContainer
+  .eventBox
+  .artistContainer
+  .artistBox
+  .artistDetails {
+  color: #fff;
+  font-size: 1vw;
+  font-weight: 300;
+  margin-top: 1vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .foodLabel {
+  color: #fff;
+  font-size: 2vw;
+  font-weight: 700;
+  margin-top: 2vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .foodTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .foodTagContainer .foodTag {
+  border: 0.1vw solid #ffffff;
+  color: #ffffff;
+  font-size: 1.25vw;
+  border-radius: 2vw;
+  padding: 0.75vw 1.5vw;
+  box-sizing: border-box;
+  margin-right: 1vw;
+  font-weight: 600;
+  margin-bottom: 1vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .eventActionContainer {
+  display: flex;
+  margin-top: 2vw;
+}
+
+.section1 .evenWrapper .eventContainer .eventBox .eventActionContainer button {
+  background-color: #2144ff;
+  color: #fff;
+  border: none;
+  padding: 0.75vw 1.5vw;
+  box-sizing: border-box;
+  margin-right: 1vw;
+  border-radius: 0.5vw;
+  font-size: 1vw;
+  font-weight: 600;
+  cursor: pointer;
 }
