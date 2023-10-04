@@ -133,6 +133,7 @@
   width: 50%;
   display: flex;
   margin-bottom: 1vw;
+  align-items: center;
 }
 
 .section1
@@ -284,4 +285,170 @@
   a {
   color: #fff;
   text-decoration: none;
+}
+
+@media screen and (orientation: portrait) {
+  .section1 .evenWrapper .eventContainer .eventBox {
+    margin-bottom: 5vw;
+    width: 100%;
+  }
+
+  .section1 .evenWrapper .eventCategory {
+    font-size: 4vw;
+  }
+
+  .section1 .evenWrapper .eventContainer .eventBox:nth-child(odd) {
+    padding-right: 0;
+  }
+
+  .section1 .evenWrapper .eventContainer .eventBox:nth-child(even) {
+    padding-left: 0;
+  }
+
+  .section1 .evenWrapper .eventContainer .eventBox {
+    margin-bottom: 10vw;
+  }
+
+  .section1 .evenWrapper .eventContainer .eventBox .eventImg img {
+    height: 40vw;
+
+    border-radius: 3vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventHeader
+    .leftBox
+    .eventTitle {
+    font-size: 4vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventHeader
+    .leftBox
+    .eventSubTitle {
+    font-size: 2.5vw;
+    margin-top: 1vw;
+  }
+
+  .section1 .evenWrapper .eventContainer .eventBox .eventHeader .rightBox {
+    width: 25%;
+    font-size: 3.5vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .rightBox {
+    padding-top: 2vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .rightBox
+    .entry {
+    font-size: 3.5vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .rightBox
+    .price {
+    font-size: 4.5vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .leftBox {
+    margin-top: 2vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .leftBox
+    .eventDetailsBox
+    .detailsValue {
+    font-size: 3vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .leftBox
+    .eventDetailsBox
+    .detailsIcon
+    img {
+    width: 3vw;
+    height: 3vw;
+    display: block;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .leftBox
+    .eventDetailsBox {
+    margin-bottom: 2vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .leftBox
+    .eventMusic
+    .detailsIcon
+    img {
+    width: 3vw;
+    height: 3vw;
+    display: block;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventDetailsWrapper
+    .leftBox
+    .eventMusic
+    .detailsValue {
+    font-size: 3vw;
+  }
+
+  .section1
+    .evenWrapper
+    .eventContainer
+    .eventBox
+    .eventActionContainer
+    button {
+    padding: 1.75vw 2.5vw;
+    margin-right: 1vw;
+    border-radius: 1.5vw;
+    font-size: 3vw;
+    margin-top: 2vw;
+  }
 }

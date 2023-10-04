@@ -26,6 +26,7 @@
   flex: 1;
   height: 100vh;
   backdrop-filter: blur(1.3vw);
+  position: relative;
 }
 
 .ageGateContainer .warning {
@@ -60,7 +61,6 @@
   background: #00578d;
   color: #fff;
   font-size: 1vw;
-  font-weight: 300;
   border: none;
   padding: 0.75vw 1.5vw;
   border-radius: 0.5vw;
@@ -74,7 +74,6 @@
   background: #00578d;
   color: #fff;
   font-size: 1vw;
-  font-weight: 300;
   border: none;
   padding: 0.75vw 1.5vw;
   border-radius: 0.5vw;
@@ -88,9 +87,59 @@
   background: #00578d;
   color: #fff;
   font-size: 1vw;
-  font-weight: 300;
   border: none;
   padding: 0.75vw 1.5vw;
   border-radius: 0.5vw;
   font-weight: 600;
+}
+
+@media screen and (orientation: portrait) {
+  .ageGateContainer .logoContainer {
+    height: 20vw;
+  }
+
+  .ageGateContainer .logoContainer img {
+    width: 20%;
+    height: auto;
+  }
+
+  .ageGateContainer .warning {
+    color: #ffc700;
+    font-weight: 700;
+    font-size: 8vw;
+    text-align: center;
+    padding-top: 20vw;
+  }
+
+  .ageGateContainer .warningDescription {
+    font-size: 4vw;
+    margin: 1vw auto;
+    width: 70vw;
+  }
+
+  .ageGateContainer .ageYears {
+    font-size: 4vw;
+    margin-top: 2vw;
+  }
+
+  .ageGateContainer .button1 {
+    top: 55vw;
+    font-size: 3vw;
+    padding: 1.75vw 2.5vw;
+    border-radius: 1.5vw;
+  }
+
+  .ageGateContainer .button2 {
+    top: 65vw;
+    font-size: 3vw;
+    padding: 1.75vw 2.5vw;
+    border-radius: 1.5vw;
+  }
+  .ageGateContainer .button3 {
+    top: 65vw;
+    font-size: 3vw;
+    padding: 1.75vw 2.5vw;
+    border-radius: 1.5vw;
+    left: 15vw;
+  }
 }

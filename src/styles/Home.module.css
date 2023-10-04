@@ -32,6 +32,7 @@
     rgba(14, 39, 67, 1) 0%,
     rgba(15, 42, 74, 0) 100%
   );
+  pointer-events: none;
 }
 
 .section1 .galaxyContainer {
@@ -52,6 +53,11 @@
   mix-blend-mode: overlay;
 }
 
+.section1 .galaxyContainer .galaxyBox:hover img {
+  transform: scale(2);
+  transition: transform 0.3s ease;
+}
+
 .section1 .headerContainer {
   position: absolute;
   top: 50%;
@@ -59,7 +65,8 @@
   transform: translate(-50%, -50%);
   text-align: center;
   width: 100%;
-  line-height: 8vw;
+  line-height: 10vw;
+  pointer-events: none;
 }
 
 .section1 .headerContainer h1 {
@@ -328,6 +335,7 @@
   width: 95%;
   left: 50%;
   transform: translateX(-50%);
+  flex-wrap: wrap;
 }
 
 .section3 .box3 .menuContainer {
@@ -534,4 +542,183 @@
   font-size: 1.2vw;
   color: #fff598;
   text-transform: uppercase;
+}
+
+@media screen and (orientation: portrait) {
+  .section2 .box1 .header {
+    font-size: 4.5vw;
+    line-height: 5vw;
+  }
+
+  .section2 .box1 .description {
+    font-size: 3.5vw;
+    line-height: 4vw;
+    padding: 0 4vw;
+    margin: 3vw auto;
+  }
+
+  .section2 .box2 .header {
+    font-size: 4.5vw;
+    line-height: 5vw;
+  }
+
+  .section2 .box2 .description {
+    font-size: 3.5vw;
+    line-height: 4vw;
+    padding: 0 4vw;
+    margin: 3vw auto;
+  }
+
+  .section3 .box1 .header {
+    font-size: 4.5vw;
+    line-height: 5vw;
+  }
+
+  .section3 .box1 .description {
+    font-size: 3.5vw;
+    line-height: 4vw;
+    padding: 0 4vw;
+    margin: 3vw auto;
+  }
+
+  .section3 .box2 {
+    top: 45vw;
+  }
+
+  .section3 .galaxyContainer {
+    top: 45vw;
+  }
+
+  .section3 .box2 .header {
+    font-size: 4.5vw;
+    line-height: 5vw;
+  }
+
+  .section3 .box2 .description {
+    font-size: 3.5vw;
+    line-height: 4vw;
+    padding: 0 4vw;
+    margin: 3vw auto;
+  }
+
+  .section3 .box3 {
+    margin-top: 68vw;
+  }
+
+  .section3 .box3 .menuContainer {
+    width: 30%;
+    padding-left: 2%;
+    box-sizing: border-box;
+  }
+
+  .section3 .box3 .menuContainer .header {
+    font-size: 4vw;
+  }
+
+  .section3 .box3 .menuContainer ul li a {
+    font-size: 3.5vw;
+  }
+
+  .section3 .box3 .contactUsContainer {
+    padding-right: 0%;
+    width: 70%;
+  }
+
+  .section3 .box3 .contactUsContainer .header {
+    font-size: 4vw;
+    font-weight: 600;
+  }
+
+  .section3 .box3 .contactUsContainer .companyName {
+    font-size: 3.5vw;
+  }
+
+  .section3 .box3 .contactUsContainer .phoneContainer .iconContainer img {
+    width: 2.5vw;
+    height: 2.5vw;
+    display: unset;
+  }
+
+  .section3 .box3 .contactUsContainer .phoneContainer .phone {
+    margin-left: 1vw;
+  }
+
+  .section3 .box3 .contactUsContainer .phoneContainer .phone a {
+    font-size: 3.5vw;
+  }
+
+  .section3 .box3 .contactUsContainer .emailContainer .iconContainer img {
+    width: 2.5vw;
+    height: 2.5vw;
+    display: unset;
+  }
+
+  .section3 .box3 .contactUsContainer .emailContainer .email {
+    margin-left: 1vw;
+  }
+
+  .section3 .box3 .contactUsContainer .emailContainer .email a {
+    font-size: 3.5vw;
+  }
+
+  .section3 .box3 .contactUsContainer .addressContainer .iconContainer img {
+    width: 2.5vw;
+    height: 2.5vw;
+    display: unset;
+  }
+
+  .section3 .box3 .contactUsContainer .addressContainer .address {
+    margin-left: 1vw;
+    font-size: 3.5vw;
+  }
+
+  .section3 .box3 .contactUsContainer .socialMediaContainer img {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .section3 .box3 .contactFormContainer {
+    width: 100%;
+    margin-top: 5vw;
+  }
+
+  .section3 .box3 .contactFormContainer .header {
+    color: #fff598;
+    font-size: 4vw;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .section3 .box3 .contactFormContainer .formWrapper {
+    margin-top: 3vw;
+  }
+
+  .section3 .box3 .contactFormContainer .formWrapper .formGroup {
+    margin-bottom: 2vw;
+  }
+
+  .section3 .box3 .contactFormContainer .formWrapper .formGroup input {
+    border: 0.3vw solid #fff598;
+    font-size: 3vw;
+    padding: 1.75vw 1.75vw;
+    border-radius: 1.5vw;
+  }
+
+  .section3 .box3 .contactFormContainer .formWrapper .formGroup textarea {
+    font-size: 3vw;
+    padding: 1.75vw 1.75vw;
+    border-radius: 1.5vw;
+    height: 16vw;
+  }
+
+  .section3 .box3 .contactFormContainer .formWrapper .formGroup button {
+    font-size: 3vw;
+    padding: 1.5vw 2vw;
+  }
+
+  .section4 {
+    height: 12vw;
+
+    font-size: 3vw;
+  }
 }
