@@ -258,6 +258,10 @@ export default function Signup() {
                     <div className={styles.error}>{formErrors.dateOfBirth}</div>
                   )}
                 </div>
+                <div className={styles.agreement}>
+                  By continuing, you agree to Bendereign Terms of Service and
+                  Privacy Policy.
+                </div>
 
                 <div className={styles.btnContainer}>
                   <button type="submit">Create Account</button>
