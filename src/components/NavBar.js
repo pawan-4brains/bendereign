@@ -4,7 +4,7 @@ import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import { useState } from "react";
 
-function NavBar({ activeMenu, bgColor }) {
+function NavBar({ activeMenu, navbarClass, bgColor }) {
   const [isMenuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -22,7 +22,7 @@ function NavBar({ activeMenu, bgColor }) {
 
   return (
     <>
-      <div className={`${styles.navBarContainer} ${bgColor}`}>
+      <div className={`${styles[navbarClass]} ${bgColor}`}>
         <div className={styles.logoContainer}>
           <a href="#">
             <Image width={348} height={236} src="/images/logo.png"></Image>

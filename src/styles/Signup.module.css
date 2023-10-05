@@ -1,0 +1,338 @@
+.navBarBG2 {
+  background: rgb(96, 28, 147);
+  background: linear-gradient(
+    180deg,
+    rgba(96, 28, 147, 1) 0%,
+    rgba(62, 23, 102, 1) 100%
+  );
+  backdrop-filter: blur(2vw);
+}
+
+.section1 {
+  background: rgb(206, 89, 161);
+  background: linear-gradient(
+    0deg,
+    rgba(206, 89, 161, 1) 0%,
+    rgba(94, 26, 146, 1) 100%
+  );
+  width: 100vw;
+  margin-top: 9vw;
+}
+
+.section1 .starContainer {
+  width: 90vw;
+  position: absolute;
+  top: 1vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section1 .starContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.section1 .moon {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 0, 157, 0) 100%
+  );
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  top: 10vw;
+  right: 21vw;
+  border-radius: 50%;
+}
+
+.section1 .workContainer {
+  position: relative;
+  padding-top: 1vw;
+}
+
+.section1 .workContainer .welcome {
+  color: #fff;
+  font-size: 2.5vw;
+  font-family: "Tapas";
+  text-align: center;
+  line-height: 4vw;
+}
+
+.section1 .workContainer .brandName {
+  color: #fff;
+  font-size: 5vw;
+  font-family: "Tapas";
+  text-align: center;
+  line-height: 3vw;
+}
+
+.section1 .workContainer .registrationContainer {
+  width: 45vw;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 133.87, 214.63, 0.6) 0%,
+    rgba(49, 19, 80, 0.6) 0%,
+    rgba(22, 13, 44, 0.19) 62%,
+    rgba(48, 18, 79, 0) 100%
+  );
+  border-radius: 3vw;
+  margin: 4vw auto 0 auto;
+  position: relative;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+.section1 .workContainer .registrationContainer .headerText {
+  color: #fff;
+  font-size: 2vw;
+  font-family: "Tapas";
+  text-align: center;
+}
+
+.section1 .workContainer .registrationContainer .formContainer {
+  padding: 2vw 2vw 1vw 2vw;
+  box-sizing: border-box;
+}
+
+.section1 .workContainer .registrationContainer .formContainer .formGroup {
+  position: relative;
+  margin-bottom: 2vw;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .iconContainer1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #cb57a1;
+  width: 15%;
+  height: 3.5vw;
+  border-radius: 5vw;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .iconContainer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #5e1a92;
+  width: 15%;
+  height: 3.5vw;
+  border-radius: 5vw;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .iconContainer1
+  img,
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .iconContainer2
+  img {
+  width: 30%;
+  height: auto;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .input1 {
+  border: none;
+  border-radius: 5vw;
+  width: 100%;
+  background: rgb(94, 26, 146);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 26, 146, 1) 20%,
+    rgba(206, 89, 161, 1) 100%
+  );
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.25vw;
+  padding: 1vw 2vw 1vw 7vw;
+  box-sizing: border-box;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .input2 {
+  border: none;
+  border-radius: 5vw;
+  width: 100%;
+  background: #ce59a1;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.25vw;
+  padding: 1vw 2vw 1vw 7vw;
+  box-sizing: border-box;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .input1:focus,
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .input2:focus {
+  outline: none;
+}
+
+.section1 .workContainer .registrationContainer .formContainer .btnContainer {
+  text-align: center;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .btnContainer
+  button {
+  background: linear-gradient(0deg, #14103a 40%, #5e1a92 100%);
+  border-radius: 2vw;
+  border: 0.1vw #7673ff solid;
+  padding: 1vw 2vw;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.25vw;
+}
+
+.section1 .workContainer .registrationContainer .formContainer .error {
+  color: #f00;
+  margin-top: 0.3vw;
+  font-size: 0.9vw;
+  font-style: italic;
+  text-shadow: 0.1vw 0.1vw 0.1vw rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (orientation: portrait) {
+  .section1 {
+    margin-top: 14vw;
+    min-height: 100vh;
+  }
+
+  .section1 .starContainer {
+    display: none;
+  }
+
+  .section1 .moon {
+    display: none;
+  }
+
+  .section1 .workContainer {
+    position: relative;
+    padding-top: 6vw;
+  }
+
+  .section1 .workContainer .welcome {
+    font-size: 5vw;
+    line-height: 6vw;
+  }
+
+  .section1 .workContainer .brandName {
+    font-size: 9vw;
+    line-height: 8vw;
+  }
+
+  .section1 .workContainer .registrationContainer {
+    width: 83vw;
+    margin: 10vw auto 0 auto;
+    border-radius: 5vw;
+  }
+
+  .section1 .workContainer .registrationContainer .headerText {
+    font-size: 4vw;
+  }
+
+  .section1 .workContainer .registrationContainer .formContainer {
+    padding: 4vw 3vw 1vw 3vw;
+  }
+  .section1 .workContainer .registrationContainer .formContainer .formGroup {
+    margin-bottom: 4vw;
+  }
+
+  .section1
+    .workContainer
+    .registrationContainer
+    .formContainer
+    .formGroup
+    .input1,
+  .section1
+    .workContainer
+    .registrationContainer
+    .formContainer
+    .formGroup
+    .input2 {
+    font-size: 3.5vw;
+    padding: 2.4vw 2vw 2.4vw 18vw;
+  }
+
+  .section1
+    .workContainer
+    .registrationContainer
+    .formContainer
+    .formGroup
+    .iconContainer1,
+  .section1
+    .workContainer
+    .registrationContainer
+    .formContainer
+    .formGroup
+    .iconContainer2 {
+    width: 20%;
+    height: 9vw;
+  }
+
+  .section1
+    .workContainer
+    .registrationContainer
+    .formContainer
+    .btnContainer
+    button {
+    border-radius: 6vw;
+    border: 0.3vw #7673ff solid;
+    padding: 2.5vw 6vw;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 3.5vw;
+  }
+
+  .section1 .workContainer .registrationContainer .formContainer .error {
+    margin-top: 0.7vw;
+    font-size: 2.5vw;
+  }
+}

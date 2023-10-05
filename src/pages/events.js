@@ -40,7 +40,7 @@ export default function Events() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <main className={`${raleway.className}`}>
-        <NavBar activeMenu={"EVENTS"} />
+        <NavBar activeMenu={"EVENTS"} navbarClass={"navBarContainer"} />
 
         <div className={styles.section1}>
           <div className={styles.headerContainer}>

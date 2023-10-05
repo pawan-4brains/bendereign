@@ -47,7 +47,11 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <main className={`${raleway.className}`}>
-        <NavBar activeMenu={"HOME"} bgColor={styles.navBarBG1} />
+        <NavBar
+          activeMenu={"HOME"}
+          bgColor={styles.navBarBG1}
+          navbarClass={"navBarContainer"}
+        />
         {showAgeGate && (
           <AgeGate
             onCompleted={() => {
