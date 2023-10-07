@@ -109,13 +109,23 @@
   .registrationContainer
   .formContainer
   .formGroup
+  .inputBox {
+  position: relative;
+}
+
+.section1
+  .workContainer
+  .registrationContainer
+  .formContainer
+  .formGroup
+  .inputBox
   .iconContainer1 {
   position: absolute;
   top: 0;
   left: 0;
   background: #cb57a1;
   width: 15%;
-  height: 3.5vw;
+  height: 100%;
   border-radius: 5vw;
   display: flex;
   text-align: center;
@@ -128,13 +138,14 @@
   .registrationContainer
   .formContainer
   .formGroup
+  .inputBox
   .iconContainer2 {
   position: absolute;
   top: 0;
   left: 0;
   background: #5e1a92;
   width: 15%;
-  height: 3.5vw;
+  height: 100%;
   border-radius: 5vw;
   display: flex;
   text-align: center;
@@ -247,6 +258,16 @@
   color: #fff;
 }
 
+.section1 .workContainer .registrationContainer .forgotPassword {
+  text-align: right;
+  font-size: 1.25vw;
+}
+
+.section1 .workContainer .registrationContainer .forgotPassword a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 @media screen and (orientation: portrait) {
   .section1 {
     margin-top: 14vw;
@@ -346,5 +367,13 @@
 
   .section1 .workContainer .registrationContainer .formContainer .agreement {
     font-size: 2.5vw;
+  }
+
+  .section1 .workContainer .registrationContainer .forgotPassword {
+    font-size: 3.5vw;
+  }
+
+  .section1 .workContainer .registrationContainer .formContainer .btnContainer {
+    margin-top: 1vw;
   }
 }

@@ -3,50 +3,31 @@ import Image from "next/image";
 import { Raleway } from "next/font/google";
 import styles from "@/styles/Login.module.css";
 import NavBar from "@/components/NavBar";
+import Link from "next/link";
 import { useState } from "react";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
   const [formErrors, setFormErrors] = useState({});
 
-  // const validate = () => {
-  //   let errors = {};
+  const validate = () => {
+    let errors = {};
 
-  //   if (!formData.fullName.trim()) errors.fullName = "Full Name is required";
-  //   if (!formData.username.trim()) errors.username = "Username is required";
-  //   const mobilePattern = /^[0-9]{10}$/;
-  //   if (!formData.mobile.trim()) {
-  //     errors.mobile = "Mobile is required";
-  //   } else if (!mobilePattern.test(formData.mobile)) {
-  //     errors.mobile = "Invalid mobile number";
-  //   }
-  //   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  //   if (!formData.email.trim()) {
-  //     errors.email = "Email is required";
-  //   } else if (!emailPattern.test(formData.email)) {
-  //     errors.email = "Invalid email address";
-  //   }
-  //   if (!formData.password) errors.password = "Password is required";
-  //   if (!formData.confirmPassword)
-  //     errors.confirmPassword = "Password is required";
-  //   if (formData.password !== formData.confirmPassword)
-  //     errors.confirmPassword = "Passwords do not match";
-  //   const dobPattern = /^\d{4}-\d{2}-\d{2}$/;
-  //   if (!formData.dateOfBirth) {
-  //     errors.dateOfBirth = "Date of Birth is required";
-  //   } else if (!dobPattern.test(formData.dateOfBirth)) {
-  //     errors.dateOfBirth = "Date of Birth format is invalid";
-  //   }
+    if (!formData.username.trim())
+      errors.username = "Username/Email is required";
 
-  //   setFormErrors(errors);
-  //   return Object.keys(errors).length === 0;
-  // };
+    if (!formData.password.trim()) errors.password = "Password is required";
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,6 +39,28 @@ export default function Login() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
+
+    let updatedErrors = { ...formErrors };
+    switch (name) {
+      case "username":
+        if (!value.trim()) updatedErrors[name] = "Username is required";
+        else delete updatedErrors[name];
+        break;
+      case "password":
+        if (!value) updatedErrors[name] = "Password is required";
+        else if (formData.confirmPassword && value !== formData.confirmPassword)
+          updatedErrors.confirmPassword = "Passwords do not match";
+        else {
+          delete updatedErrors[name];
+          if (formData.confirmPassword === value)
+            delete updatedErrors.confirmPassword;
+        }
+        break;
+      default:
+        break;
+    }
+
+    setFormErrors(updatedErrors);
   };
 
   return (
@@ -104,22 +107,24 @@ export default function Login() {
             <div className={styles.brandName}>BENDEREIGN</div>
             <div className={styles.registrationContainer}>
               <div className={styles.headerText}>USER LOGIN</div>
-              <form className={styles.formContainer}>
+              <form className={styles.formContainer} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
-                  <input
-                    type="text"
-                    name="username"
-                    className={styles.input1}
-                    placeholder="Username / Email"
-                    value={formData.username}
-                    onChange={handleChange}
-                  />
-                  <div className={styles.iconContainer1}>
-                    <Image
-                      src="/images/r-user.png"
-                      width={100}
-                      height={100}
-                    ></Image>
+                  <div className={styles.inputBox}>
+                    <input
+                      type="text"
+                      name="username"
+                      className={styles.input1}
+                      placeholder="Username / Email"
+                      value={formData.username}
+                      onChange={handleChange}
+                    />
+                    <div className={styles.iconContainer1}>
+                      <Image
+                        src="/images/r-user.png"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
                   </div>
                   {formErrors.username && (
                     <div className={styles.error}>{formErrors.username}</div>
@@ -127,24 +132,29 @@ export default function Login() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <input
-                    type="password"
-                    name="password"
-                    className={styles.input2}
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                  />
-                  <div className={styles.iconContainer2}>
-                    <Image
-                      src="/images/r-lock.png"
-                      width={100}
-                      height={100}
-                    ></Image>
+                  <div className={styles.inputBox}>
+                    <input
+                      type="password"
+                      name="password"
+                      className={styles.input2}
+                      placeholder="Password"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                    <div className={styles.iconContainer2}>
+                      <Image
+                        src="/images/r-lock.png"
+                        width={100}
+                        height={100}
+                      ></Image>
+                    </div>
                   </div>
                   {formErrors.password && (
                     <div className={styles.error}>{formErrors.password}</div>
                   )}
+                </div>
+                <div className={styles.forgotPassword}>
+                  <Link href="/forgot-password">Forgot Password?</Link>
                 </div>
 
                 <div className={styles.btnContainer}>

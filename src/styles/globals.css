@@ -13,3 +13,10 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+.react-datepicker__year-dropdown,
+.react-datepicker__month-dropdown,
+.react-datepicker__month-year-dropdown {
+  height: 14.5vw;
+  overflow-y: scroll;
+}

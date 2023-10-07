@@ -35,7 +35,6 @@
 }
 
 .navBarContainer .menuContainer ul li {
-  padding: 0.75vw 2vw;
   box-sizing: border-box;
   margin: 0 0.5vw;
   cursor: pointer;
@@ -46,6 +45,8 @@
   font-size: 1vw;
   font-weight: 600;
   text-decoration: none;
+  padding: 1vw 2vw;
+  display: block;
 }
 
 .navBarContainer .menuContainer ul li.active {
@@ -146,7 +147,6 @@
 }
 
 .navBarContainer1 .menuContainer ul li {
-  padding: 0.75vw 2vw;
   box-sizing: border-box;
   margin: 0 0.5vw;
   cursor: pointer;
@@ -157,6 +157,8 @@
   font-size: 1vw;
   font-weight: 600;
   text-decoration: none;
+  padding: 1vw 2vw;
+  display: block;
 }
 
 .navBarContainer1 .menuContainer ul li.active {
