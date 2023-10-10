@@ -68,6 +68,7 @@ export default function Login() {
   };
 
   const handleSubmit = async (e) => {
+    console.log(process.env.NEXT_PUBLIC_SERVER_URL);
     setLoginError();
     e.preventDefault();
     if (validate()) {
