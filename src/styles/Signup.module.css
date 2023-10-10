@@ -16,6 +16,7 @@
     rgba(94, 26, 146, 1) 100%
   );
   width: 100vw;
+  min-height: 100vh;
   margin-top: 9vw;
 }
 
@@ -70,7 +71,6 @@
 
 .section1 .workContainer .registrationContainer {
   width: 45vw;
-
   background: linear-gradient(
     180deg,
     rgba(255, 133.87, 214.63, 0.6) 0%,
@@ -287,6 +287,76 @@
   height: auto;
 }
 
+.section1 .workContainer .registrationContainer .formContainer .signUpError {
+  color: #f00;
+  margin-top: 0.3vw;
+  font-size: 1vw;
+  text-shadow: 0.1vw 0.1vw 0.1vw rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.section1 .workContainer .thankyouContainer {
+  width: 45vw;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 133.87, 214.63, 0.6) 0%,
+    rgba(49, 19, 80, 0.6) 0%,
+    rgba(22, 13, 44, 0.19) 62%,
+    rgba(48, 18, 79, 0) 100%
+  );
+  border-radius: 3vw;
+  margin: 4vw auto 0 auto;
+  position: relative;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+.section1 .workContainer .thankyouContainer .headerText {
+  color: #fff;
+  font-size: 2vw;
+  font-family: "Tapas";
+  text-align: center;
+}
+
+.section1 .workContainer .thankyouContainer .thankyouBox {
+  padding: 2vw 2vw 1vw 2vw;
+  box-sizing: border-box;
+}
+
+.section1 .workContainer .thankyouContainer .thankyouBox .successIcon {
+  width: 40vw;
+  height: 40vw;
+  margin: auto;
+}
+
+.section1 .workContainer .thankyouContainer .thankyouBox .thankYouHeader {
+  color: #fff;
+  font-size: 1.4vw;
+  text-align: center;
+  font-weight: 600;
+}
+
+.section1 .workContainer .thankyouContainer .thankyouBox .thankYouBody {
+  color: #fff;
+  font-size: 1vw;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 1vw;
+}
+.section1 .workContainer .thankyouContainer .thankyouBox .btnContainer {
+  text-align: center;
+  margin-top: 1vw;
+}
+.section1 .workContainer .thankyouContainer .thankyouBox .btnContainer button {
+  background: linear-gradient(0deg, #14103a 40%, #5e1a92 100%);
+  border-radius: 2vw;
+  border: 0.1vw #7673ff solid;
+  padding: 1vw 2vw;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.25vw;
+}
+
 @media screen and (orientation: portrait) {
   .section1 {
     margin-top: 14vw;
@@ -329,6 +399,7 @@
   .section1 .workContainer .registrationContainer .formContainer {
     padding: 4vw 3vw 1vw 3vw;
   }
+
   .section1 .workContainer .registrationContainer .formContainer .formGroup {
     margin-bottom: 4vw;
   }
@@ -403,5 +474,41 @@
     .formContainer
     .customInlineCalendar {
     top: -30vw;
+  }
+
+  .section1 .workContainer .thankyouContainer {
+    width: 83vw;
+    margin: 10vw auto 0 auto;
+    border-radius: 5vw;
+  }
+
+  .section1 .workContainer .thankyouContainer .headerText {
+    font-size: 4vw;
+  }
+
+  .section1 .workContainer .thankyouContainer .thankyouBox {
+    padding: 4vw 3vw 1vw 3vw;
+  }
+
+  .section1 .workContainer .thankyouContainer .thankyouBox .thankYouHeader {
+    font-size: 4vw;
+  }
+
+  .section1 .workContainer .thankyouContainer .thankyouBox .thankYouBody {
+    font-size: 3vw;
+    margin-top: 2vw;
+  }
+
+  .section1
+    .workContainer
+    .thankyouContainer
+    .thankyouBox
+    .btnContainer
+    button {
+    border-radius: 6vw;
+    border: 0.3vw #7673ff solid;
+    padding: 2.5vw 6vw;
+    font-size: 3.5vw;
+    margin-top: 3vw;
   }
 }

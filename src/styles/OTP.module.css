@@ -1,0 +1,160 @@
+.otpWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otpWrapper .otpContainer {
+  background: linear-gradient(
+    180deg,
+    rgba(199, 85, 161, 0.6) 0%,
+    rgba(49, 19, 80, 0.6) 23%,
+    rgba(22, 13, 44, 0.6) 83%,
+    rgba(48, 18, 79, 0) 100%
+  );
+  border-radius: 4vw;
+  backdrop-filter: blur(0.7vw);
+  width: 45vw;
+  height: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otpWrapper .otpContainer .shieldContainer {
+  text-align: center;
+}
+
+.otpWrapper .otpContainer .shieldContainer img {
+  width: 10vw;
+  height: auto;
+}
+
+.otpWrapper .otpContainer .otpInstruction {
+  font-size: 1vw;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 2.5vw;
+}
+
+.otpWrapper .otpContainer .otpInputContainer {
+  text-align: center;
+  margin-top: 2.5vw;
+}
+.otpWrapper .otpContainer .otpInputContainer input {
+  width: 2.5vw;
+  height: 2.5vw;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  margin: 0 0.5vw;
+  font-family: inherit;
+  font-size: 1.2vw;
+  font-weight: 600;
+}
+
+.otpWrapper .otpContainer .otpInputContainer input:focus {
+  outline: none;
+}
+
+.otpWrapper .otpContainer .btnContainer {
+  text-align: center;
+  margin-top: 2.5vw;
+}
+.otpWrapper .otpContainer .btnContainer button {
+  background: linear-gradient(0deg, #14103a 40%, #5e1a92 100%);
+  border-radius: 2vw;
+  border: 0.1vw #7673ff solid;
+  padding: 1vw 2vw;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.25vw;
+}
+
+.otpWrapper .otpContainer .resendContainer {
+  text-align: center;
+  margin-top: 1vw;
+}
+
+.otpWrapper .otpContainer .resendContainer .resendText {
+  color: #ffffff;
+  font-size: 1vw;
+}
+
+.otpWrapper .otpContainer .resendContainer button {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.otpWrapper .otpContainer .error {
+  color: #f00;
+  margin-top: 0.3vw;
+  font-size: 0.9vw;
+  text-shadow: 0.1vw 0.1vw 0.1vw rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-top: 2vw;
+}
+
+@media screen and (orientation: portrait) {
+  .otpWrapper .otpContainer {
+    width: 85vw;
+    height: 90vw;
+    border-radius: 7vw;
+  }
+
+  .otpWrapper .otpContainer .shieldContainer img {
+    width: 25vw;
+    height: auto;
+  }
+
+  .otpWrapper .otpContainer .otpInstruction {
+    font-size: 3vw;
+    margin-top: 2.5vw;
+  }
+
+  .otpWrapper .otpContainer .otpInputContainer {
+    margin-top: 3vw 0;
+  }
+  .otpWrapper .otpContainer .otpInputContainer input {
+    width: 7vw;
+    height: 7vw;
+    margin: 0 1.5vw;
+    font-size: 4vw;
+  }
+
+  .otpWrapper .otpContainer .resendContainer .resendText {
+    font-size: 3vw;
+    margin-top: 3vw;
+  }
+
+  .otpWrapper .otpContainer .resendContainer button {
+    font-size: 3vw;
+    margin-top: 3vw;
+  }
+
+  .otpWrapper .otpContainer .btnContainer button {
+    font-size: 3vw;
+    margin-top: 3vw;
+    border-radius: 6vw;
+    border: 0.3vw #7673ff solid;
+    padding: 2.5vw 6vw;
+    font-size: 3.5vw;
+    margin-top: 3vw;
+  }
+
+  .otpWrapper .otpContainer .error {
+    font-size: 3vw;
+    margin-top: 3vw;
+  }
+}

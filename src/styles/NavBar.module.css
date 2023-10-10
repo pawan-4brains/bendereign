@@ -173,6 +173,12 @@
   border: 0.07vw white solid;
 }
 
+.navBarContainer1 .menuContainer ul li.activeAuth {
+  border-radius: 5vw;
+  border: 0.07vw white solid;
+  background: #7017c8;
+}
+
 @media screen and (orientation: portrait) {
   .navBarContainer1 {
     height: 15vw;

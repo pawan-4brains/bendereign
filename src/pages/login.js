@@ -5,10 +5,21 @@ import styles from "@/styles/Login.module.css";
 import NavBar from "@/components/NavBar";
 import Link from "next/link";
 import { useState } from "react";
+import axios from "axios";
+import OTPVerification from "@/components/OTPVerification";
+import { useRouter } from "next/router";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Login() {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState();
+  const [submitText, setSubmitText] = useState("Login");
+  const [loginError, setLoginError] = useState();
+  const [showOTP, setShowOTP] = useState(false);
+  const [isOTPError, setIsOTPError] = useState(false);
+  const [userId, setUserId] = useState();
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -27,13 +38,6 @@ export default function Login() {
     setFormErrors(errors);
 
     return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log("Form is valid and can be submitted");
-    }
   };
 
   const handleChange = (e) => {
@@ -61,6 +65,59 @@ export default function Login() {
     }
 
     setFormErrors(updatedErrors);
+  };
+
+  const handleSubmit = async (e) => {
+    setLoginError();
+    e.preventDefault();
+    if (validate()) {
+      try {
+        setIsSubmitting(true);
+        setSubmitText("Please wait...");
+        const response = await axios.post(
+          process.env.NEXT_PUBLIC_SERVER_URL + "/api/login-participant",
+          formData
+        );
+        setShowOTP(true);
+        setUserId(response.data.participantData._id);
+      } catch (error) {
+        setIsSubmitting(false);
+        setSubmitText("Login");
+        setLoginError("Sorry! Invalid credentails");
+      }
+    }
+  };
+
+  const verifyOTP = async (otp) => {
+    setIsOTPError(false);
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_SERVER_URL + "/api/verify-login-otp",
+        { userId: userId, otp: otp }
+      );
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userId", response.data.participantData._id);
+      localStorage.setItem("email", response.data.participantData.email);
+      localStorage.setItem("username", response.data.participantData.username);
+      localStorage.setItem("mobile", response.data.participantData.mobile);
+      localStorage.setItem("fullname", response.data.participantData.fullname);
+
+      setTimeout(() => {
+        setShowOTP(false);
+        router.push("/");
+      }, 1000);
+    } catch (error) {
+      setIsOTPError(true);
+    }
+  };
+
+  const resendOTP = async () => {
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_SERVER_URL + "/api/resend-login-otp",
+        { userId: userId }
+      );
+    } catch (error) {}
   };
 
   return (
@@ -93,7 +150,7 @@ export default function Login() {
       </Head>
       <main className={`${raleway.className}`}>
         <NavBar
-          activeMenu={""}
+          activeMenu={"LOGIN"}
           bgColor={styles.navBarBG2}
           navbarClass={"navBarContainer1"}
         />
@@ -153,17 +210,29 @@ export default function Login() {
                     <div className={styles.error}>{formErrors.password}</div>
                   )}
                 </div>
+
                 <div className={styles.forgotPassword}>
                   <Link href="/forgot-password">Forgot Password?</Link>
                 </div>
-
+                {loginError && (
+                  <div className={styles.loginError}>{loginError}</div>
+                )}
                 <div className={styles.btnContainer}>
-                  <button type="submit">Login</button>
+                  <button type="submit" disabled={isSubmitting}>
+                    {submitText}
+                  </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
+        {showOTP && (
+          <OTPVerification
+            onVerifyOTP={verifyOTP}
+            onOTPError={isOTPError}
+            onResendOTP={resendOTP}
+          />
+        )}
       </main>
     </>
   );

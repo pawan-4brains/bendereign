@@ -3,22 +3,36 @@ import Image from "next/image";
 import { Raleway } from "next/font/google";
 import styles from "@/styles/Signup.module.css";
 import NavBar from "@/components/NavBar";
-import { useState } from "react";
-
+import { Fragment, useState } from "react";
+import axios from "axios";
+import Lottie from "lottie-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import OTPVerification from "@/components/OTPVerification";
+import { useRouter } from "next/router";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
+import successAnimation from "../../public/success.json";
+
 export default function Signup() {
+  const router = useRouter();
+
   const [showCalendar, setShowCalendar] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState();
+  const [submitText, setSubmitText] = useState("Create Account");
+  const [signupError, setSignupError] = useState();
+  const [showOTP, setShowOTP] = useState(false);
+  const [isOTPError, setIsOTPError] = useState(false);
+
   const [formData, setFormData] = useState({
-    fullName: "",
-    username: "",
-    mobile: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    fullname: "Pawan Kumar",
+    username: "pawan.4brains",
+    mobile: "+919835515852",
+    email: "pawan@4brains.in",
+    password: "Itsmylife@189",
+    confirmPassword: "Itsmylife@189",
     dateOfBirth: "",
   });
 
@@ -32,7 +46,7 @@ export default function Signup() {
   const validate = () => {
     let errors = {};
 
-    if (!formData.fullName.trim()) errors.fullName = "Full Name is required";
+    if (!formData.fullname.trim()) errors.fullname = "Full Name is required";
     if (!formData.username.trim()) {
       errors.username = "Username is required";
     } else if (!isValidUsername(formData.username)) {
@@ -40,12 +54,15 @@ export default function Signup() {
         "Invalid username! Only alphanumeric characters, '_' and '.' are allowed.";
     }
 
-    const mobilePattern = /^[0-9]{10}$/;
+    const mobilePattern = /^\+\d{2,4}[0-9]{9,10}$/;
+
     if (!formData.mobile.trim()) {
-      errors.mobile = "Mobile is required";
+      errors.mobile = "Mobile with country code is required";
     } else if (!mobilePattern.test(formData.mobile)) {
-      errors.mobile = "Invalid mobile number";
+      errors.mobile =
+        "Invalid mobile number with country code. E.g., +919876543210 or +971585500564";
     }
+
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!formData.email.trim()) {
       errors.email = "Email is required";
@@ -68,21 +85,13 @@ export default function Signup() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    if (validate()) {
-      console.log("Form is valid and can be submitted");
-    }
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
 
     let updatedErrors = { ...formErrors };
     switch (name) {
-      case "fullName":
+      case "fullname":
         if (!value.trim()) updatedErrors[name] = "Full Name is required";
         else delete updatedErrors[name];
         break;
@@ -94,11 +103,14 @@ export default function Signup() {
         else delete updatedErrors[name];
         break;
       case "mobile":
-        if (!value.trim()) updatedErrors[name] = "Mobile is required";
-        else if (!/^[0-9]{10}$/.test(value))
-          updatedErrors[name] = "Invalid mobile number";
+        if (!value.trim())
+          updatedErrors[name] = "Mobile with country code is required";
+        else if (!/^\+\d{2,4}[0-9]{9,10}$/.test(value))
+          updatedErrors[name] =
+            "Invalid mobile number with country code. E.g., +919876543210 or +971987654321";
         else delete updatedErrors[name];
         break;
+
       case "email":
         if (!value.trim()) updatedErrors[name] = "Email is required";
         else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(value))
@@ -174,6 +186,50 @@ export default function Signup() {
   const currentYear = new Date().getFullYear();
   const minYear = currentYear - 75;
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSignupError();
+    if (validate()) {
+      try {
+        setIsSubmitting(true);
+        setSubmitText("Please wait...");
+        const response = await axios.post(
+          process.env.NEXT_PUBLIC_SERVER_URL + "/api/register-participant",
+          formData
+        );
+        setShowOTP(true);
+      } catch (error) {
+        setIsSubmitting(false);
+        setSubmitText("Create Account");
+        setSignupError(error.response.data.message);
+        console.log(error.response);
+      }
+    }
+  };
+
+  const verifyOTP = async (otp) => {
+    setIsOTPError(false);
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_SERVER_URL + "/api/verify-otp",
+        { mobile: formData.mobile, otp: otp }
+      );
+      setShowOTP(false);
+      setIsRegistered(true);
+    } catch (error) {
+      setIsOTPError(true);
+    }
+  };
+
+  const resendOTP = async () => {
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_SERVER_URL + "/api/resend-mobile-otp",
+        { mobile: formData.mobile }
+      );
+    } catch (error) {}
+  };
+
   return (
     <>
       <Head>
@@ -204,7 +260,7 @@ export default function Signup() {
       </Head>
       <main className={`${raleway.className}`}>
         <NavBar
-          activeMenu={""}
+          activeMenu={"SIGNUP"}
           bgColor={styles.navBarBG2}
           navbarClass={"navBarContainer1"}
         />
@@ -216,209 +272,262 @@ export default function Signup() {
             <div className={styles.moon}></div>
             <div className={styles.welcome}>WELCOME TO THE</div>
             <div className={styles.brandName}>BENDEREIGN</div>
-            <div className={styles.registrationContainer}>
-              <div className={styles.headerText}>USER ACCOUNT</div>
-              <form className={styles.formContainer} onSubmit={handleSubmit}>
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="text"
-                      name="fullName"
-                      className={styles.input1}
-                      placeholder="Full Name"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer1}>
-                      <Image
-                        src="/images/r-user.png"
-                        width={100}
-                        height={100}
-                      ></Image>
+
+            {!isRegistered && (
+              <div className={styles.registrationContainer}>
+                <div className={styles.headerText}>USER ACCOUNT</div>
+
+                <form className={styles.formContainer} onSubmit={handleSubmit}>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="text"
+                        name="fullname"
+                        className={styles.input1}
+                        placeholder="Full Name"
+                        value={formData.fullname}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer1}>
+                        <Image
+                          src="/images/r-user.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
                     </div>
+
+                    {formErrors.fullname && (
+                      <div className={styles.error}>{formErrors.fullname}</div>
+                    )}
                   </div>
 
-                  {formErrors.fullName && (
-                    <div className={styles.error}>{formErrors.fullName}</div>
-                  )}
-                </div>
-
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="text"
-                      name="username"
-                      className={styles.input1}
-                      placeholder="Username"
-                      value={formData.username}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer1}>
-                      <Image
-                        src="/images/r-user.png"
-                        width={100}
-                        height={100}
-                      ></Image>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="text"
+                        name="username"
+                        className={styles.input1}
+                        placeholder="Username"
+                        value={formData.username}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer1}>
+                        <Image
+                          src="/images/r-user.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
                     </div>
+                    {formErrors.username && (
+                      <div className={styles.error}>{formErrors.username}</div>
+                    )}
                   </div>
-                  {formErrors.username && (
-                    <div className={styles.error}>{formErrors.username}</div>
-                  )}
-                </div>
 
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="text"
-                      name="mobile"
-                      className={styles.input2}
-                      placeholder="Mobile"
-                      value={formData.mobile}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer2}>
-                      <Image
-                        src="/images/r-phone.png"
-                        width={100}
-                        height={100}
-                      ></Image>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="text"
+                        name="mobile"
+                        className={styles.input2}
+                        placeholder="Mobile with country code"
+                        value={formData.mobile}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer2}>
+                        <Image
+                          src="/images/r-phone.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
                     </div>
+                    {formErrors.mobile && (
+                      <div className={styles.error}>{formErrors.mobile}</div>
+                    )}
                   </div>
-                  {formErrors.mobile && (
-                    <div className={styles.error}>{formErrors.mobile}</div>
-                  )}
-                </div>
 
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="email"
-                      name="email"
-                      className={styles.input2}
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer2}>
-                      <Image
-                        src="/images/r-mail.png"
-                        width={100}
-                        height={100}
-                      ></Image>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="email"
+                        name="email"
+                        className={styles.input2}
+                        placeholder="Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer2}>
+                        <Image
+                          src="/images/r-mail.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
                     </div>
+                    {formErrors.email && (
+                      <div className={styles.error}>{formErrors.email}</div>
+                    )}
                   </div>
-                  {formErrors.email && (
-                    <div className={styles.error}>{formErrors.email}</div>
-                  )}
-                </div>
 
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="password"
-                      name="password"
-                      className={styles.input2}
-                      placeholder="Password"
-                      value={formData.password}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer2}>
-                      <Image
-                        src="/images/r-lock.png"
-                        width={100}
-                        height={100}
-                      ></Image>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="password"
+                        name="password"
+                        className={styles.input2}
+                        placeholder="Password"
+                        value={formData.password}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer2}>
+                        <Image
+                          src="/images/r-lock.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
                     </div>
+                    {formErrors.password && (
+                      <div className={styles.error}>{formErrors.password}</div>
+                    )}
                   </div>
-                  {formErrors.password && (
-                    <div className={styles.error}>{formErrors.password}</div>
-                  )}
-                </div>
 
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="password"
-                      name="confirmPassword"
-                      className={styles.input1}
-                      placeholder="Retype The Password"
-                      value={formData.confirmPassword}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer1}>
-                      <Image
-                        src="/images/r-lock.png"
-                        width={100}
-                        height={100}
-                      ></Image>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        className={styles.input1}
+                        placeholder="Retype The Password"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer1}>
+                        <Image
+                          src="/images/r-lock.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
                     </div>
-                  </div>
-                  {formErrors.confirmPassword && (
-                    <div className={styles.error}>
-                      {formErrors.confirmPassword}
-                    </div>
-                  )}
-                </div>
-
-                <div className={styles.formGroup}>
-                  <div className={styles.inputBox}>
-                    <input
-                      type="text"
-                      name="dateOfBirth"
-                      className={styles.input1}
-                      placeholder="Date of Birth"
-                      value={formData.dateOfBirth}
-                      onChange={handleChange}
-                    />
-                    <div className={styles.iconContainer1}>
-                      <Image
-                        src="/images/r-cal.png"
-                        width={100}
-                        height={100}
-                      ></Image>
-                    </div>
-                    <div className={styles.calIcon}>
-                      <Image
-                        src="/images/cal-i.png"
-                        width={512}
-                        height={512}
-                        onClick={() => {
-                          setShowCalendar((val) => !showCalendar);
-                        }}
-                      ></Image>
-                    </div>
-                  </div>
-                  <div className={styles.customCalendarContainer}>
-                    {showCalendar && (
-                      <div className={styles.customInlineCalendar}>
-                        <DatePicker
-                          selected={selectedDate}
-                          onChange={handleDateChange}
-                          inline
-                          showYearDropdown
-                          yearDropdownItemNumber={70}
-                          minDate={new Date(minYear, 0, 1)}
-                          maxDate={new Date()}
-                        />
+                    {formErrors.confirmPassword && (
+                      <div className={styles.error}>
+                        {formErrors.confirmPassword}
                       </div>
                     )}
                   </div>
-                  {formErrors.dateOfBirth && (
-                    <div className={styles.error}>{formErrors.dateOfBirth}</div>
-                  )}
-                </div>
-                <div className={styles.agreement}>
-                  By continuing, you agree to Bendereign Terms of Service and
-                  Privacy Policy.
-                </div>
 
-                <div className={styles.btnContainer}>
-                  <button type="submit">Create Account</button>
-                </div>
-              </form>
-            </div>
+                  <div className={styles.formGroup}>
+                    <div className={styles.inputBox}>
+                      <input
+                        type="text"
+                        name="dateOfBirth"
+                        className={styles.input1}
+                        placeholder="Date of Birth"
+                        value={formData.dateOfBirth}
+                        onChange={handleChange}
+                      />
+                      <div className={styles.iconContainer1}>
+                        <Image
+                          src="/images/r-cal.png"
+                          width={100}
+                          height={100}
+                        ></Image>
+                      </div>
+                      <div className={styles.calIcon}>
+                        <Image
+                          src="/images/cal-i.png"
+                          width={512}
+                          height={512}
+                          onClick={() => {
+                            setShowCalendar((val) => !showCalendar);
+                          }}
+                        ></Image>
+                      </div>
+                    </div>
+                    <div className={styles.customCalendarContainer}>
+                      {showCalendar && (
+                        <div className={styles.customInlineCalendar}>
+                          <DatePicker
+                            selected={selectedDate}
+                            onChange={handleDateChange}
+                            inline
+                            showYearDropdown
+                            yearDropdownItemNumber={70}
+                            minDate={new Date(minYear, 0, 1)}
+                            maxDate={new Date()}
+                          />
+                        </div>
+                      )}
+                    </div>
+                    {formErrors.dateOfBirth && (
+                      <div className={styles.error}>
+                        {formErrors.dateOfBirth}
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.agreement}>
+                    By continuing, you agree to Bendereign Terms of Service and
+                    Privacy Policy.
+                  </div>
+                  {signupError && (
+                    <div className={styles.signUpError}>{signupError}</div>
+                  )}
+
+                  <div className={styles.btnContainer}>
+                    <button type="submit" disabled={isSubmitting}>
+                      {submitText}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            )}
+
+            {isRegistered && (
+              <div className={styles.thankyouContainer}>
+                <Fragment>
+                  <div className={styles.headerText}>USER ACCOUNT</div>
+                  <div className={styles.thankyouBox}>
+                    <div>
+                      <Lottie
+                        animationData={successAnimation}
+                        loop={false}
+                        autoPlay
+                        className={styles.successIcon}
+                      />
+                    </div>
+                    <div className={styles.thankYouHeader}>
+                      Registration Successful!
+                    </div>
+                    <div className={styles.thankYouBody}>
+                      Thank you for registering with us. We're delighted to have
+                      you onboard!
+                    </div>
+                    <div className={styles.btnContainer}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          router.push("/login");
+                        }}
+                      >
+                        Login Now
+                      </button>
+                    </div>
+                  </div>
+                </Fragment>
+              </div>
+            )}
           </div>
         </div>
+        {showOTP && (
+          <OTPVerification
+            onVerifyOTP={verifyOTP}
+            onOTPError={isOTPError}
+            onResendOTP={resendOTP}
+          />
+        )}
       </main>
     </>
   );
