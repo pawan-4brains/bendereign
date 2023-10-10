@@ -1,0 +1,161 @@
+.section1 {
+  background: #0f2c4d;
+  background: linear-gradient(180deg, #0f2c4d 0%, #041729 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+  padding: 0vw 8vw 0;
+  flex: 1;
+}
+
+.section1 .memoryBoxContainer {
+  padding-top: 13vw;
+  display: flex;
+  align-items: center;
+}
+
+.section1 .memoryBoxContainer .arrowContainer {
+  width: 6%;
+  text-align: center;
+}
+
+.section1 .memoryBoxContainer .arrowContainer img {
+  width: 50%;
+  height: auto;
+  cursor: pointer;
+}
+
+.section1 .memoryBoxContainer .memoryBox {
+  width: 88%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part1Container {
+  width: 33%;
+  height: 35vw;
+  padding: 0 0.5vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part1Container .part1Box {
+  width: 100%;
+  height: 35vw;
+  background: #ffffff;
+  border-radius: 1vw;
+  padding: 0.25vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part1Container .part1Box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1vw;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part2Container {
+  width: 33%;
+  height: 35vw;
+  padding: 0 0.5vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part2Box {
+  width: 100%;
+  height: 17vw;
+  background: #ffffff;
+  border-radius: 1vw;
+  padding: 0.25vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part2Container .part2Box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1vw;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part2Box:last-child {
+  margin-top: 1vw;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part2Box:first-child {
+  margin-top: 0;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part3Container {
+  width: 17%;
+  height: 35vw;
+  padding: 0 0.5vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part3Box {
+  width: 100%;
+  height: 8vw;
+  background: #ffffff;
+  border-radius: 1vw;
+  margin-top: 1vw;
+  padding: 0.25vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part3Container .part3Box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1vw;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part3Box:first-child {
+  margin-top: 0;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part4Container {
+  width: 17%;
+  height: 35vw;
+  padding: 0 0.5vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part4Container .part4Box {
+  width: 100%;
+  height: 35vw;
+  background: #ffffff;
+  border-radius: 1vw;
+  padding: 0.25vw;
+  box-sizing: border-box;
+}
+
+.section1 .memoryBoxContainer .memoryBox .part4Container .part4Box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1vw;
+}
+
+.slideEnter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slideEnterActive {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.slideExit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideExitActive {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 500ms, transform 500ms;
+}

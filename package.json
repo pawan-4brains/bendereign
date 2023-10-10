@@ -16,6 +16,7 @@
     "react": "latest",
     "react-datepicker": "^4.18.0",
     "react-device-detect": "^2.2.3",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-transition-group": "^4.4.5"
   }
 }
