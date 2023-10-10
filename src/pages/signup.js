@@ -27,12 +27,12 @@ export default function Signup() {
   const [isOTPError, setIsOTPError] = useState(false);
 
   const [formData, setFormData] = useState({
-    fullname: "Pawan Kumar",
-    username: "pawan.4brains",
-    mobile: "+919835515852",
-    email: "pawan@4brains.in",
-    password: "Itsmylife@189",
-    confirmPassword: "Itsmylife@189",
+    fullname: "",
+    username: "",
+    mobile: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
     dateOfBirth: "",
   });
 
